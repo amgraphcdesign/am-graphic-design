@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Design Pricing</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* 🔥 Background animations */
+.bg1, .bg2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.bg1 {
+    background-image: url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png');
+    animation: fade1 10s infinite;
+}
+
+.bg2 {
+    background-image: url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png');
+    animation: fade2 10s infinite;
+}
+
+@keyframes fade1 {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade2 {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Overlay */
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #4fc3ff;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+/* Title */
+.main-title {
+    margin-top: 80px;
+    font-size: 40px;
+    color: #4fc3ff;
+}
+
+/* Pricing text */
+.pricing {
+    margin-top: 40px;
+    line-height: 2;
+}
+
+.pricing p {
+    font-size: 18px;
+}
+
+/* GREEN PRICE */
+.price {
+    color: #00ff99;
+    font-weight: bold;
+}
+
+/* WhatsApp section */
+.order {
+    margin-top: 50px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* GREEN NUMBER */
+.number {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #00ff99;
+}
+</style>
+<link rel="icon" type="image/png" href="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
+
+</head>
+
+<body>
+
+<!-- Background -->
+<div class="bg1"></div>
+<div class="bg2"></div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact Us</a>
+<a href="about.html">About Us</a>
+</div>
+
+<!-- 🔥 ONLY CHANGE -->
+<h1 class="main-title">Logo Design Pricing</h1>
+
+<!-- Pricing (unchanged) -->
+<div class="pricing">
+    <p>1 Photo – <span class="price">$10</span></p>
+    <p>5 Photos – <span class="price">$40</span></p>
+    <p>10 Photos – <span class="price">$90</span></p>
+</div>
+
+<!-- Order -->
+<div class="order">
+    FOR PLACE AN ORDER SEND A WHATSAPP MESSAGE TO THIS NUMBER
+</div>
+
+<div class="number">
+    +94715445967
+</div>
+<!-- 🔙 Back Button -->
+<button onclick="history.back()" class="back-btn">← Back</button>
+
+<style>
+.back-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #4fc3ff;
+    color: black;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background: #2aa9e0;
+}
+</style>
+<!-- 🔻 Footer -->
+<div class="footer">
+    © 2026 A.M Graphic Design. All rights reserved.
+</div>
+
+<style>
+.footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+}
+</style>
+</body>
+</html>

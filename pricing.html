@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing - A.M Graphic Design</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* 🔥 Background fade system */
+.bg1, .bg2 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.bg1 {
+    background-image: url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png');
+    animation: fade1 10s infinite;
+}
+
+.bg2 {
+    background-image: url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png');
+    animation: fade2 10s infinite;
+}
+
+@keyframes fade1 {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fade2 {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+/* Overlay */
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.navbar a {
+    margin-left: 20px;
+    color: #4fc3ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+/* Title */
+.main-title {
+    margin-top: 80px;
+    font-size: 36px;
+    color: #4fc3ff;
+}
+
+/* Section titles */
+.section {
+    margin-top: 30px;
+}
+
+.section h2 {
+    color: #4fc3ff;
+}
+
+/* Price text */
+p {
+    margin: 6px 0;
+}
+
+.price {
+    color: #00ff99;
+    font-weight: bold;
+}
+
+/* WhatsApp */
+.order {
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.number {
+    font-size: 24px;
+    color: #00ff99;
+}
+</style>
+<link rel="icon" type="image/png" href="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
+
+</head>
+
+<body>
+
+<div class="bg1"></div>
+<div class="bg2"></div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact Us</a>
+<a href="about.html">About Us</a>
+</div>
+
+<h1 class="main-title">💰 A.M Graphic Design – Pricing Summary</h1>
+
+<div class="section">
+    <h2>🎬 Video Editing</h2>
+    <p>1 minute video – <span class="price">$10</span></p>
+    <p>5 minute video – <span class="price">$45</span></p>
+    <p>10 minute video – <span class="price">$95</span></p>
+</div>
+
+<div class="section">
+    <h2>📸 Photo Editing</h2>
+    <p>1 Photo – <span class="price">$10</span></p>
+    <p>5 Photos – <span class="price">$40</span></p>
+    <p>10 Photos – <span class="price">$90</span></p>
+</div>
+
+<div class="section">
+    <h2>🤖 AI Editing</h2>
+    <p>1 Photo – <span class="price">$10</span></p>
+    <p>5 Photos – <span class="price">$40</span></p>
+    <p>10 Photos – <span class="price">$90</span></p>
+</div>
+
+<div class="section">
+    <h2>🎨 Logo Design</h2>
+    <p>Basic Package – <span class="price">$10</span></p>
+    <p>Standard Package – <span class="price">$40</span></p>
+    <p>Premium Package – <span class="price">$90</span></p>
+</div>
+
+<div class="section">
+    <h2>🔷 Pattern Design</h2>
+    <p>Basic Design – <span class="price">$10</span></p>
+    <p>Medium Design – <span class="price">$40</span></p>
+    <p>Advanced Design – <span class="price">$90</span></p>
+</div>
+
+<div class="section">
+    <h2>📚 Book Covers Design</h2>
+    <p>Single Cover – <span class="price">$10</span></p>
+    <p>3 Covers – <span class="price">$40</span></p>
+    <p>5 Covers – <span class="price">$90</span></p>
+</div>
+
+<div class="section">
+    <h2>🏷️ Brand Labels Design</h2>
+    <p>1 Label – <span class="price">$10</span></p>
+    <p>5 Labels – <span class="price">$40</span></p>
+    <p>10 Labels – <span class="price">$90</span></p>
+</div>
+
+<div class="order">
+    💬 To place an order, send a WhatsApp message:
+</div>
+
+<div class="number">
+    📱 +94715445967
+</div>
+
+<!-- 🔥 ADDED -->
+<div class="order">
+    💳 PayPal: <span class="price">amdigitalvibe@gmail.com</span>
+</div>
+
+<div class="order">
+    (Bank transfers also available)
+</div>
+
+
+
+<!-- 🔙 Back Button -->
+<button onclick="history.back()" class="back-btn">← Back</button>
+
+<style>
+.back-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #4fc3ff;
+    color: black;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background: #2aa9e0;
+}
+</style>
+<!-- 🔻 Footer -->
+<div class="footer">
+    © 2026 A.M Graphic Design. All rights reserved.
+</div>
+
+<style>
+.footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+}
+</style>
+</body>
+</html>

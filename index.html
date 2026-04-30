@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.M Graphic Design</title>
+
+<!-- 🔥 NEW FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* 🔥 Background Layer 1 */
+.bg1, .bg2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.bg1 {
+    background-image: url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png');
+    animation: fade1 10s infinite;
+}
+
+.bg2 {
+    background-image: url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png');
+    animation: fade2 10s infinite;
+}
+
+/* 🔥 Fade animations */
+@keyframes fade1 {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade2 {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Overlay */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: -1;
+}
+
+/* 🔥 NAVBAR */
+.navbar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #4fc3ff;
+    font-weight: bold;
+}
+
+/* Shake */
+.navbar a:hover {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 40px 20px 10px;
+}
+
+/* 🔥 UPDATED TITLE STYLE ONLY */
+.header h1 {
+    font-size: 48px;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(90deg, #4fc3ff, #00ff99, #4fc3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(79,195,255,0.5);
+    letter-spacing: 3px;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    margin: 20px;
+}
+
+.logo img {
+    width: 180px;
+}
+
+/* Services */
+.services {
+    padding: 40px;
+}
+
+.services h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #4fc3ff;
+}
+
+/* List */
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+}
+
+/* Button */
+button {
+    background: #4fc3ff;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #2aa9e0;
+}
+</style>
+
+<link rel="icon" type="image/png" href="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
+</head>
+
+<body>
+
+<!-- 🔥 Background layers -->
+<div class="bg1"></div>
+<div class="bg2"></div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact Us</a>
+<a href="about.html">About Us</a>
+</div>
+
+<div class="header">
+    <h1>A.M Graphic Design</h1>
+</div>
+
+<div class="logo">
+    <img src="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png" alt="Logo">
+</div>
+
+<div class="services">
+    <h2>Services</h2>
+
+    <ul class="service-list">
+        <li class="service-row">
+            <span>Video Editing</span>
+            <button onclick="window.location.href='page2.html'">Details</button>
+        </li>
+
+        <li class="service-row">
+            <span>Photo Editing</span>
+            <button onclick="window.location.href='page3.html'">Details</button>
+        </li>
+
+        <li class="service-row">
+            <span>AI Editing</span>
+            <button onclick="window.location.href='page4.html'">Details</button>
+        </li>
+
+        <li class="service-row">
+            <span>Logo Design</span>
+            <button onclick="window.location.href='page5.html'">Details</button>
+        </li>
+
+        <li class="service-row">
+            <span>Pattern Design</span>
+            <button onclick="window.location.href='page6.html'">Details</button>
+        </li>
+
+        <li class="service-row">
+            <span>Book Covers Design</span>
+            <button onclick="window.location.href='page7.html'">Details</button>
+        </li>
+
+        <li class="service-row">
+            <span>Brand Labels Design</span>
+            <button onclick="window.location.href='page8.html'">Details</button>
+        </li>
+    </ul>
+
+</div>
+
+<!-- 🔻 Footer -->
+<div class="footer">
+    © 2026 A.M Graphic Design. All rights reserved.
+</div>
+
+<style>
+.footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+}
+</style>
+
+</body>
+</html>
