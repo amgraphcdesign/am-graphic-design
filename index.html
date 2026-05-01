@@ -72,18 +72,7 @@ body::after {
     font-weight: bold;
 }
 
-.navbar a:hover {
-    animation: shake 0.3s;
-}
-
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-2px); }
-    50% { transform: translateX(2px); }
-    75% { transform: translateX(-2px); }
-    100% { transform: translateX(0); }
-}
-
+/* Header */
 .header {
     text-align: center;
     padding: 40px 20px 10px;
@@ -97,15 +86,19 @@ body::after {
     -webkit-text-fill-color: transparent;
 }
 
+/* LOGO FIX */
 .logo {
     text-align: center;
     margin: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .logo img {
     width: 180px;
 }
 
+/* Services */
 .services {
     padding: 40px;
 }
@@ -163,6 +156,7 @@ button:hover {
     position: relative;
 }
 
+/* DOTS */
 .dots {
     margin-top: 10px;
 }
@@ -180,17 +174,7 @@ button:hover {
     background-color: #4fc3ff;
 }
 
-/* FOOTER */
-.footer {
-    position: fixed;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #888;
-    font-size: 14px;
-}
-
-/* 🔥 POPUP */
+/* POPUP */
 .popup {
   position: fixed;
   top: 0;
@@ -211,32 +195,42 @@ button:hover {
   text-align: center;
   border: 2px solid #00ffcc;
   box-shadow: 0 0 20px #00ffcc;
-  position: relative;
+  margin: auto;
 }
 
 .popup-box h2 {
   color: #4fc3ff;
 }
 
-.popup-btn {
+.popup-box button {
+  margin-top: 15px;
   padding: 12px 25px;
+  font-size: 16px;
   background: #4fc3ff;
+  color: black;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 0 15px #4fc3ff;
+  box-shadow: 0 0 10px #4fc3ff;
 }
 
-.popup-btn:hover {
-  background: #2aa9e0;
-}
-
-.close {
+.close-btn {
   position: absolute;
   top: 10px;
   right: 15px;
   cursor: pointer;
+  color: white;
+  font-size: 20px;
+}
+
+/* FOOTER */
+.footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #888;
+    font-size: 14px;
 }
 </style>
 </head>
@@ -257,6 +251,7 @@ button:hover {
 <h1>A.M Graphic Design</h1>
 </div>
 
+<!-- LOGO BACK -->
 <div class="logo">
 <img src="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
 </div>
@@ -273,7 +268,6 @@ button:hover {
 <li class="service-row"><span>Book Covers Design</span><button onclick="window.location.href='page7.html'">Details</button></li>
 <li class="service-row"><span>Brand Labels Design</span><button onclick="window.location.href='page8.html'">Details</button></li>
 </ul>
-
 </div>
 
 <!-- SLIDESHOW -->
@@ -289,19 +283,17 @@ button:hover {
 </div>
 </div>
 
-<div class="footer">
-© 2026 A.M Graphic Design. All rights reserved.
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <span class="close-btn" onclick="closePopup()">✖</span>
+    <h2>Hire Me on Fiverr</h2>
+    <button onclick="window.open('https://www.fiverr.com/s/qDZNep9')">CLICK HERE</button>
+  </div>
 </div>
 
-<!-- 🔥 POPUP -->
-<div id="popup" class="popup">
-  <div class="popup-box">
-    <span class="close" onclick="closePopup()">✖</span>
-    <h2>Hire Me on Fiverr</h2>
-    <a href="https://www.fiverr.com/s/qDZNep9" target="_blank">
-      <button class="popup-btn">CLICK HERE</button>
-    </a>
-  </div>
+<div class="footer">
+© 2026 A.M Graphic Design. All rights reserved.
 </div>
 
 <script>
@@ -312,9 +304,12 @@ let index = 0;
 setInterval(() => {
   slides[index].classList.remove("active");
   dots[index].classList.remove("active");
+
   index = (index + 1) % slides.length;
+
   slides[index].classList.add("active");
   dots[index].classList.add("active");
+
 }, 3000);
 
 /* POPUP */
@@ -322,7 +317,7 @@ setTimeout(() => {
   document.getElementById("popup").style.display = "flex";
 }, 5000);
 
-function closePopup(){
+function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
 </script>
