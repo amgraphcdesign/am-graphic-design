@@ -139,7 +139,7 @@ button:hover {
     background: #2aa9e0;
 }
 
-/* 🔥 SLIDESHOW */
+/* SLIDESHOW */
 .slideshow {
     width: 80%;
     max-width: 500px;
@@ -163,7 +163,6 @@ button:hover {
     position: relative;
 }
 
-/* DOTS */
 .dots {
     margin-top: 10px;
 }
@@ -189,6 +188,55 @@ button:hover {
     transform: translateX(-50%);
     color: #888;
     font-size: 14px;
+}
+
+/* 🔥 POPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.8);
+  z-index: 999;
+}
+
+.popup-box {
+  background: #111;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 20px #00ffcc;
+  position: relative;
+}
+
+.popup-box h2 {
+  color: #4fc3ff;
+}
+
+.popup-btn {
+  padding: 12px 25px;
+  background: #4fc3ff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #4fc3ff;
+}
+
+.popup-btn:hover {
+  background: #2aa9e0;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
 }
 </style>
 </head>
@@ -228,7 +276,7 @@ button:hover {
 
 </div>
 
-<!-- 🔥 SLIDESHOW -->
+<!-- SLIDESHOW -->
 <div class="slideshow">
 <img src="hours.png" class="slide active">
 <img src="order.png" class="slide">
@@ -245,6 +293,17 @@ button:hover {
 © 2026 A.M Graphic Design. All rights reserved.
 </div>
 
+<!-- 🔥 POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <span class="close" onclick="closePopup()">✖</span>
+    <h2>Hire Me on Fiverr</h2>
+    <a href="https://www.fiverr.com/s/qDZNep9" target="_blank">
+      <button class="popup-btn">CLICK HERE</button>
+    </a>
+  </div>
+</div>
+
 <script>
 let slides = document.querySelectorAll(".slide");
 let dots = document.querySelectorAll(".dot");
@@ -253,13 +312,19 @@ let index = 0;
 setInterval(() => {
   slides[index].classList.remove("active");
   dots[index].classList.remove("active");
-
   index = (index + 1) % slides.length;
-
   slides[index].classList.add("active");
   dots[index].classList.add("active");
-
 }, 3000);
+
+/* POPUP */
+setTimeout(() => {
+  document.getElementById("popup").style.display = "flex";
+}, 5000);
+
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
 </script>
 
 </body>
