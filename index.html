@@ -154,6 +154,28 @@ button {
 
 button:hover {
     background: #2aa9e0;
+
+    .slideshow {
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 10px;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
 }
 </style>
 
@@ -224,23 +246,23 @@ button:hover {
 
 </div>
 
-<!-- SLIDESHOW START -->
-<div class="slideshow-container">
 
-  <img src="hours.png" class="slide active">
-  <img src="paypal.png" class="slide">
+<!-- SLIDESHOW -->
+<div class="slideshow">
+  <img src="hour.png" class="slide active">
   <img src="order.png" class="slide">
-
-
+  <img src="paypal.png" class="slide">
 </div>
-<!-- SLIDESHOW END -->
     
 <!-- 🔻 Footer -->
 <div class="footer">
     © 2026 A.M Graphic Design. All rights reserved.
 </div>
 
+    
 <style>
+
+    
 .footer {
     position: fixed;
     bottom: 15px;
@@ -251,6 +273,15 @@ button:hover {
     text-align: center;
 }
 </style>
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
 
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000); // 3 seconds
+</script>
 </body>
 </html>
