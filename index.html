@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A.M Graphic Design</title>
 
+<!-- ✅ FAVICON FIX -->
+<link rel="icon" type="image/png" href="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 
 <style>
@@ -86,7 +89,7 @@ body::after {
     -webkit-text-fill-color: transparent;
 }
 
-/* LOGO FIX */
+/* LOGO */
 .logo {
     text-align: center;
     margin: 20px;
@@ -188,14 +191,15 @@ button:hover {
   z-index: 999;
 }
 
+/* ✅ FIX: relative added */
 .popup-box {
+  position: relative;
   background: #111;
   padding: 30px;
   border-radius: 15px;
   text-align: center;
   border: 2px solid #00ffcc;
   box-shadow: 0 0 20px #00ffcc;
-  margin: auto;
 }
 
 .popup-box h2 {
@@ -214,13 +218,14 @@ button:hover {
   box-shadow: 0 0 10px #4fc3ff;
 }
 
+/* ✅ CLOSE BUTTON FIX */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 8px;
+  right: 12px;
   cursor: pointer;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* FOOTER */
@@ -251,14 +256,12 @@ button:hover {
 <h1>A.M Graphic Design</h1>
 </div>
 
-<!-- LOGO BACK -->
 <div class="logo">
 <img src="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
 </div>
 
 <div class="services">
 <h2>Services</h2>
-
 <ul class="service-list">
 <li class="service-row"><span>Video Editing</span><button onclick="window.location.href='page2.html'">Details</button></li>
 <li class="service-row"><span>Photo Editing</span><button onclick="window.location.href='page3.html'">Details</button></li>
@@ -304,12 +307,9 @@ let index = 0;
 setInterval(() => {
   slides[index].classList.remove("active");
   dots[index].classList.remove("active");
-
   index = (index + 1) % slides.length;
-
   slides[index].classList.add("active");
   dots[index].classList.add("active");
-
 }, 3000);
 
 /* POPUP */
