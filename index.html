@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A.M Graphic Design</title>
 
-<!-- ✅ FAVICON FIX -->
 <link rel="icon" type="image/png" href="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
@@ -73,6 +72,47 @@ body::after {
     text-decoration: none;
     color: #4fc3ff;
     font-weight: bold;
+}
+
+/* 🔥 MENU BUTTON */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #4fc3ff;
+    z-index: 1000;
+}
+
+/* 🔥 DROPDOWN MENU (PRO) */
+.dropdown-menu {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    background: rgba(0,0,0,0.95);
+    padding: 15px;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 0 20px #4fc3ff, 0 0 40px #00ffcc;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {opacity:0; transform: translateY(-10px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+.dropdown-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 0;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    color: #00ffcc;
 }
 
 /* Header */
@@ -191,7 +231,6 @@ button:hover {
   z-index: 999;
 }
 
-/* ✅ FIX: relative added */
 .popup-box {
   position: relative;
   background: #111;
@@ -218,7 +257,6 @@ button:hover {
   box-shadow: 0 0 10px #4fc3ff;
 }
 
-/* ✅ CLOSE BUTTON FIX */
 .close-btn {
   position: absolute;
   top: 8px;
@@ -241,6 +279,18 @@ button:hover {
 </head>
 
 <body>
+
+<!-- 🔥 MENU BUTTON -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- 🔥 DROPDOWN -->
+<div class="dropdown-menu" id="menu">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="pricing.html">Pricing</a>
+<a href="contact.html">Contact Us</a>
+<a href="about.html">About Us</a>
+</div>
 
 <div class="bg1"></div>
 <div class="bg2"></div>
@@ -274,7 +324,6 @@ button:hover {
 </ul>
 </div>
 
-<!-- SLIDESHOW -->
 <div class="slideshow">
 <img src="hours.png" class="slide active">
 <img src="order.png" class="slide">
@@ -287,7 +336,6 @@ button:hover {
 </div>
 </div>
 
-<!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
     <span class="close-btn" onclick="closePopup()">✖</span>
@@ -320,6 +368,22 @@ setTimeout(() => {
 
 function closePopup() {
   document.getElementById("popup").style.display = "none";
+}
+
+/* 🔥 MENU TOGGLE */
+function toggleMenu() {
+  let menu = document.getElementById("menu");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+/* 🔥 CLOSE WHEN CLICK OUTSIDE */
+window.onclick = function(e) {
+  let menu = document.getElementById("menu");
+  if (!e.target.matches('.menu-btn')) {
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    }
+  }
 }
 </script>
 
