@@ -123,8 +123,7 @@ select, textarea {
     top: 10px;
     cursor: pointer;
 }
-<!-- 🔙 Back Button -->
-<button onclick="history.back()" class="back-btn">← Back</button>
+
 
 <style>
 .back-btn {
@@ -196,7 +195,27 @@ select, textarea {
   <div class="popup-box">
     
     <span class="close" onclick="closePopup()">✖</span>
-  
+  <!-- 🔙 Back Button -->
+<button onclick="history.back()" class="back-btn">← Back</button>
+
+<style>
+.back-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #4fc3ff;
+    color: black;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background: #2aa9e0;
+}
+</style>
 
     <h2 id="title"></h2>
 
