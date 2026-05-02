@@ -224,18 +224,23 @@ select, textarea {
   <div class="popup-box">
     
     <span class="close" onclick="closePopup()">✖</span>
-  <!-- 🔙 Back Button -->
-<button onclick="history.back()" class="back-btn">← Back</button>
-
-.back {
-    position: absolute;
-    left: 15px;
-    top: 10px;
-    background: transparent;
+ .back-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #4fc3ff;
+    color: black;
     border: none;
-    color: #4fc3ff;
-    font-size: 16px;
+    padding: 10px 16px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 10px #4fc3ff;
+}
+
+.back-btn:hover {
+    background: #2aa9e0;
+    box-shadow: 0 0 15px #00ffcc;
 }
 
 </style>
@@ -342,6 +347,6 @@ function checkout(){
 }
 
 </script>
-
+<button onclick="goBack()" class="back-btn">← Back</button>
 </body>
 </html>
