@@ -9,291 +9,116 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
-    overflow-x: hidden;
-}
+body { margin: 0; font-family: Arial; color: white; overflow-x: hidden; }
 
 /* Background */
 .bg1, .bg2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: -2;
+    position: fixed; width: 100%; height: 100%;
+    top: 0; left: 0; background-size: cover;
+    background-position: center; z-index: -2;
 }
+.bg1 { background-image: url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png'); animation: fade1 10s infinite; }
+.bg2 { background-image: url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png'); animation: fade2 10s infinite; }
 
-.bg1 {
-    background-image: url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png');
-    animation: fade1 10s infinite;
-}
-
-.bg2 {
-    background-image: url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png');
-    animation: fade2 10s infinite;
-}
-
-@keyframes fade1 {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-@keyframes fade2 {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}
+@keyframes fade1 {0%{opacity:1;}50%{opacity:0;}100%{opacity:1;}}
+@keyframes fade2 {0%{opacity:0;}50%{opacity:1;}100%{opacity:0;}}
 
 body::after {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    z-index: -1;
+    content:""; position:fixed; width:100%; height:100%;
+    background:rgba(0,0,0,0.7); z-index:-1;
 }
 
 /* NAVBAR */
-.navbar {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-}
-
+.navbar { position:absolute; top:20px; right:30px; }
 .navbar a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #4fc3ff;
-    font-weight: bold;
+    margin-left:20px; text-decoration:none;
+    color:#4fc3ff; font-weight:bold;
 }
 
-/* 🔥 LOGIN BUTTON INSIDE NAVBAR */
+/* LOGIN BUTTON */
 .nav-login {
-    margin-left: 20px;
-    background: #4fc3ff;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    color: black;
+    margin-left:20px; background:#4fc3ff;
+    border:none; padding:8px 15px;
+    border-radius:5px; cursor:pointer;
 }
 
-.nav-login:hover {
-    background: #00ffcc;
-}
-
-/* MENU BUTTON */
+/* MENU */
 .menu-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #4fc3ff;
-    z-index: 1000;
+    position:fixed; top:20px; left:20px;
+    font-size:28px; cursor:pointer;
+    color:#4fc3ff; z-index:1000;
 }
 
-/* DROPDOWN */
 .dropdown-menu {
-    position: fixed;
-    top: 60px;
-    left: 20px;
-    background: rgba(0,0,0,0.95);
-    padding: 15px;
-    border-radius: 12px;
-    display: none;
-    flex-direction: column;
-    box-shadow: 0 0 20px #4fc3ff, 0 0 40px #00ffcc;
+    position:fixed; top:60px; left:20px;
+    background:rgba(0,0,0,0.95);
+    padding:15px; border-radius:12px;
+    display:none; box-shadow:0 0 20px #4fc3ff;
 }
-
 .dropdown-menu a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 0;
-    display: block;
+    color:white; text-decoration:none;
+    display:block; padding:8px 0;
 }
 
-/* Header */
-.header {
-    text-align: center;
-    padding: 40px 20px 10px;
-}
-
+/* HEADER */
+.header { text-align:center; padding:40px 20px 10px; }
 .header h1 {
-    font-size: 48px;
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(90deg, #4fc3ff, #00ff99, #4fc3ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size:48px; font-family:'Orbitron';
+    background:linear-gradient(90deg,#4fc3ff,#00ff99,#4fc3ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 /* LOGO */
-.logo {
-    text-align: center;
-    margin: 20px;
-}
+.logo { text-align:center; margin:20px; }
+.logo img { width:180px; }
 
-.logo img {
-    width: 180px;
-}
-
-/* Services */
-.services {
-    padding: 40px;
-}
-
-.services h2 {
-    font-size: 32px;
-    color: #4fc3ff;
-}
-
+/* SERVICES */
+.services { padding:40px; }
+.services h2 { color:#4fc3ff; }
 .service-row {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #444;
-    padding: 10px 0;
+    display:flex; justify-content:space-between;
+    border-bottom:1px solid #444; padding:10px 0;
 }
 
 button {
-    background: #4fc3ff;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 5px;
+    background:#4fc3ff; border:none;
+    padding:8px 15px; border-radius:5px;
 }
 
 /* SLIDESHOW */
 .slideshow {
-    width: 80%;
-    max-width: 500px;
-    margin: 40px auto;
-    position: relative;
+    width:80%; max-width:500px;
+    margin:40px auto;
+}
+.slide { width:100%; position:absolute; opacity:0; transition:1s; }
+.slide.active { opacity:1; position:relative; }
+
+/* POPUPS */
+.popup, .login-popup {
+    position:fixed; width:100%; height:100%;
+    display:none; justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.85);
 }
 
-.slide {
-    width: 100%;
-    position: absolute;
-    opacity: 0;
-    transition: 1s;
-}
-
-.slide.active {
-    opacity: 1;
-    position: relative;
-}
-
-/* DOTS */
-.dot {
-    height: 10px;
-    width: 10px;
-    margin: 5px;
-    background-color: #555;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.dot.active {
-    background-color: #4fc3ff;
-}
-
-/* POPUP */
-.popup {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.8);
-}
-
-.popup-box {
-  background: #111;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  border: 2px solid #00ffcc;
-}
-
-/* LOGIN POPUP */
-.login-popup {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.85);
-  z-index: 2000;
-}
-
-.login-box {
-  background: #111;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  border: 2px solid #4fc3ff;
-  box-shadow: 0 0 20px #4fc3ff;
+.popup-box, .login-box {
+    background:#111; padding:30px;
+    border-radius:15px; text-align:center;
+    border:2px solid #00ffcc;
 }
 
 .login-box input {
-  width: 250px;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-}
-
-.login-box button {
-  width: 100%;
-  margin-top: 10px;
+    width:250px; padding:10px;
+    margin:10px 0; border:none;
+    border-radius:5px;
 }
 
 /* FOOTER */
 .footer {
-    position: fixed;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #888;
-}
-
-/* 🔥 RESPONSIVE FIX */
-@media (max-width: 768px){
-
-    .navbar {
-        display: none;
-    }
-
-    .header h1 {
-        font-size: 26px;
-    }
-
-    .logo img {
-        width: 130px;
-    }
-
-    .services {
-        padding: 20px;
-    }
-
-    .service-row {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .slideshow {
-        width: 95%;
-    }
-
+    position:fixed; bottom:15px;
+    left:50%; transform:translateX(-50%);
+    color:#888;
 }
 </style>
 </head>
@@ -315,11 +140,10 @@ button {
 
 <div class="navbar">
 <a href="index.html">Home</a>
-<a href="services.html">Services</a>    
+<a href="services.html">Services</a>
 <a href="pricing.html">Pricing</a>
 <a href="contact.html">Contact Us</a>
 <a href="about.html">About Us</a>
-
 <button onclick="openLogin()" class="nav-login">Login</button>
 </div>
 
@@ -350,6 +174,7 @@ button {
 <img src="paypal.png" class="slide">
 </div>
 
+<!-- Fiverr Popup -->
 <div class="popup" id="popup">
   <div class="popup-box">
     <h2>Hire Me on Fiverr</h2>
@@ -357,7 +182,7 @@ button {
   </div>
 </div>
 
-<!-- 🔥 LOGIN POPUP -->
+<!-- LOGIN POPUP -->
 <div class="login-popup" id="loginPopup">
   <div class="login-box">
     <h2>Login</h2>
@@ -374,14 +199,14 @@ button {
 </div>
 
 <script>
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+let slides=document.querySelectorAll(".slide");
+let index=0;
 
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 3000);
+setInterval(()=>{
+ slides[index].classList.remove("active");
+ index=(index+1)%slides.length;
+ slides[index].classList.add("active");
+},3000);
 
 setTimeout(()=>{
  document.getElementById("popup").style.display="flex";
@@ -389,15 +214,15 @@ setTimeout(()=>{
 
 function toggleMenu(){
  let m=document.getElementById("menu");
- m.style.display = (m.style.display==="block")?"none":"block";
+ m.style.display=(m.style.display==="block")?"none":"block";
 }
 
-/* LOGIN POPUP */
-function openLogin(){
+/* 🔥 GLOBAL FIX */
+window.openLogin=function(){
  document.getElementById("loginPopup").style.display="flex";
 }
 
-function closeLogin(){
+window.closeLogin=function(){
  document.getElementById("loginPopup").style.display="none";
 }
 </script>
@@ -407,34 +232,34 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/fireba
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
 from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyD3G4mmRipP4amnA2Nywo0ODpQaWL3xDQM",
-  authDomain: "am-graphic-design-750c2.firebaseapp.com",
-  projectId: "am-graphic-design-750c2",
-  storageBucket: "am-graphic-design-750c2.firebasestorage.app",
-  messagingSenderId: "1089225701837",
-  appId: "1:1089225701837:web:2f545dbf529610381d2c84"
+const firebaseConfig={
+ apiKey:"AIzaSyD3G4mmRipP4amnA2Nywo0ODpQaWL3xDQM",
+ authDomain:"am-graphic-design-750c2.firebaseapp.com",
+ projectId:"am-graphic-design-750c2",
+ storageBucket:"am-graphic-design-750c2.firebasestorage.app",
+ messagingSenderId:"1089225701837",
+ appId:"1:1089225701837:web:2f545dbf529610381d2c84"
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
 
-window.signUp = function(){
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+window.signUp=function(){
+ let email=document.getElementById("email").value;
+ let password=document.getElementById("password").value;
 
-  createUserWithEmailAndPassword(auth, email, password)
-  .then(()=> alert("Account Created ✅"))
-  .catch(err => alert(err.message));
+ createUserWithEmailAndPassword(auth,email,password)
+ .then(()=>alert("Account Created"))
+ .catch(e=>alert(e.message));
 }
 
-window.login = function(){
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+window.login=function(){
+ let email=document.getElementById("email").value;
+ let password=document.getElementById("password").value;
 
-  signInWithEmailAndPassword(auth, email, password)
-  .then(()=> alert("Login Success 🔥"))
-  .catch(err => alert(err.message));
+ signInWithEmailAndPassword(auth,email,password)
+ .then(()=>alert("Login Success"))
+ .catch(e=>alert(e.message));
 }
 </script>
 
