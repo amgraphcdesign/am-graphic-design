@@ -135,31 +135,6 @@ select, textarea {
 <span>Photo Editing</span>
 </div>
 
-<div class="row" onclick="openPopup('pattern.png','Pattern Design')">
-<img src="pattern.png">
-<span>Pattern Design</span>
-</div>
-
-<div class="row" onclick="openPopup('logo.png','Logo Design')">
-<img src="logo.png">
-<span>Logo Design</span>
-</div>
-
-<div class="row" onclick="openPopup('ai.png','AI Editing')">
-<img src="ai.png">
-<span>AI Editing</span>
-</div>
-
-<div class="row" onclick="openPopup('brand.png','Brand Labels Design')">
-<img src="brand.png">
-<span>Brand Labels Design</span>
-</div>
-
-<div class="row" onclick="openPopup('book.png','Book Covers Design')">
-<img src="book.png">
-<span>Book Covers Design</span>
-</div>
-
 </div>
 
 <!-- POPUP -->
@@ -172,7 +147,7 @@ select, textarea {
 
     <div id="priceText" class="price"></div>
 
-    <!-- VIDEO TYPE ONLY -->
+    <!-- VIDEO TYPE (only for video) -->
     <select id="type" style="display:none;" onchange="calc()">
         <option value="1">1 min</option>
         <option value="5">5 min</option>
@@ -201,9 +176,11 @@ function openPopup(img, title){
     let priceText = document.getElementById("priceText");
 
     if(title === "Video Editing"){
+        // VIDEO ONLY
         typeBox.style.display = "block";
         priceText.innerText = "1min = $10 | 5min = $45 | 10min = $95";
     } else {
+        // OTHER SERVICES (OLD SYSTEM)
         typeBox.style.display = "none";
         priceText.innerText = "1 = $10 | 5 = $40 | 10 = $90";
     }
@@ -246,6 +223,7 @@ function calc(){
         if(type == "10") price = qty * 95;
 
     } else {
+        // OLD LOGIC
         if(qty == 5) price = 40;
         else if(qty == 10) price = 90;
         else price = qty * 10;
