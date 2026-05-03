@@ -84,6 +84,14 @@ body::after {
     z-index: 1000;
 }
 
+/* LOGIN BUTTON */
+.login-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
 /* DROPDOWN */
 .dropdown-menu {
     position: fixed;
@@ -173,20 +181,6 @@ button {
     position: relative;
 }
 
-/* DOTS */
-.dot {
-    height: 10px;
-    width: 10px;
-    margin: 5px;
-    background-color: #555;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.dot.active {
-    background-color: #4fc3ff;
-}
-
 /* POPUP */
 .popup {
   position: fixed;
@@ -195,7 +189,8 @@ button {
   display: none;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(5px);
 }
 
 .popup-box {
@@ -206,6 +201,14 @@ button {
   border: 2px solid #00ffcc;
 }
 
+.popup-box input {
+  width: 90%;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+}
+
 /* FOOTER */
 .footer {
     position: fixed;
@@ -214,44 +217,14 @@ button {
     transform: translateX(-50%);
     color: #888;
 }
-
-/* 🔥 RESPONSIVE FIX */
-@media (max-width: 768px){
-
-    .navbar {
-        display: none;
-    }
-
-    .header h1 {
-        font-size: 26px;
-    }
-
-    .logo img {
-        width: 130px;
-    }
-
-    .services {
-        padding: 20px;
-    }
-
-    .service-row {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .slideshow {
-        width: 95%;
-    }
-
-}
 </style>
 </head>
 
 <body>
 
-
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<button class="login-btn" onclick="openLogin()">Login</button>
 
 <div class="dropdown-menu" id="menu">
 <a href="index.html">Home</a>
@@ -299,6 +272,21 @@ button {
 <img src="paypal.png" class="slide">
 </div>
 
+<!-- LOGIN POPUP -->
+<div class="popup" id="loginPopup">
+  <div class="popup-box">
+    <span onclick="closeLogin()" style="cursor:pointer;color:white;">✖</span>
+    <h2>Login / Sign Up</h2>
+
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <br>
+    <button onclick="signUp()">Sign Up</button>
+    <button onclick="signIn()">Login</button>
+  </div>
+</div>
+
 <div class="popup" id="popup">
   <div class="popup-box">
     <h2>Hire Me on Fiverr</h2>
@@ -328,32 +316,49 @@ function toggleMenu(){
  let m=document.getElementById("menu");
  m.style.display = (m.style.display==="block")?"none":"block";
 }
+
+function openLogin(){
+ document.getElementById("loginPopup").style.display="flex";
+}
+function closeLogin(){
+ document.getElementById("loginPopup").style.display="none";
+}
 </script>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
 
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+const firebaseConfig = {
+  apiKey: "AIzaSyD3G4mmRipP4amnA2Nywo0ODpQaWL3xDQM",
+  authDomain: "am-graphic-design-750c2.firebaseapp.com",
+  projectId: "am-graphic-design-750c2",
+  storageBucket: "am-graphic-design-750c2.firebasestorage.app",
+  messagingSenderId: "1089225701837",
+  appId: "1:1089225701837:web:2f545dbf529610381d2c84"
+};
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyD3G4mmRipP4amnA2Nywo0ODpQaWL3xDQM",
-    authDomain: "am-graphic-design-750c2.firebaseapp.com",
-    projectId: "am-graphic-design-750c2",
-    storageBucket: "am-graphic-design-750c2.firebasestorage.app",
-    messagingSenderId: "1089225701837",
-    appId: "1:1089225701837:web:2f545dbf529610381d2c84",
-    measurementId: "G-G83SQZ0VB6"
-  };
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+window.signUp = function(){
+ let email = document.getElementById("email").value;
+ let password = document.getElementById("password").value;
 
+ createUserWithEmailAndPassword(auth, email, password)
+ .then(()=> alert("Account Created!"))
+ .catch(e=> alert(e.message));
+}
+
+window.signIn = function(){
+ let email = document.getElementById("email").value;
+ let password = document.getElementById("password").value;
+
+ signInWithEmailAndPassword(auth, email, password)
+ .then(()=> alert("Login Success!"))
+ .catch(e=> alert(e.message));
+}
 </script>
+
 </body>
 </html>
