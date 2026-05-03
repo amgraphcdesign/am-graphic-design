@@ -9,182 +9,155 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    color: white;
-    overflow-x: hidden;
+/* ===== BASE ===== */
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* BACKGROUND */
-.bg1, .bg2 {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    z-index: -2;
+/* ===== BACKGROUND (2 layers + fade) ===== */
+.bg1,.bg2{
+  position:fixed; top:0; left:0;
+  width:100%; height:100%;
+  background-size:cover;
+  background-position:center;
+  z-index:-2;
 }
-.bg1 { background:url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png'); animation:fade1 10s infinite;}
-.bg2 { background:url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png'); animation:fade2 10s infinite;}
-
+.bg1{
+  background-image:url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png');
+  animation:fade1 10s infinite;
+}
+.bg2{
+  background-image:url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png');
+  animation:fade2 10s infinite;
+}
 @keyframes fade1{0%{opacity:1;}50%{opacity:0;}100%{opacity:1;}}
 @keyframes fade2{0%{opacity:0;}50%{opacity:1;}100%{opacity:0;}}
-
-body::after {
-    content:"";
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.7);
-    z-index:-1;
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.7);
+  z-index:-1;
 }
 
-/* NAVBAR */
-.navbar {
-    position:absolute;
-    top:20px;
-    right:30px;
+/* ===== NAVBAR ===== */
+.navbar{
+  position:absolute; top:20px; right:30px;
 }
-.navbar a {
-    margin-left:20px;
-    color:#4fc3ff;
-    text-decoration:none;
-    font-weight:bold;
+.navbar a{
+  margin-left:20px;
+  text-decoration:none;
+  color:#4fc3ff;
+  font-weight:bold;
 }
 
-/* LOGIN BUTTON */
-.nav-login {
-    margin-left:20px;
-    background:#4fc3ff;
-    border:none;
-    padding:8px 15px;
-    border-radius:5px;
-    cursor:pointer;
+/* ===== LOGIN BUTTON ===== */
+.nav-login{
+  margin-left:20px;
+  background:#4fc3ff;
+  border:none;
+  padding:8px 15px;
+  border-radius:5px;
+  cursor:pointer;
 }
 
-/* MENU BUTTON */
-.menu-btn {
-    position:fixed;
-    top:20px;
-    left:20px;
-    font-size:28px;
-    cursor:pointer;
-    color:#4fc3ff;
-    z-index:1000;
+/* ===== MENU (mobile toggle) ===== */
+.menu-btn{
+  position:fixed; top:20px; left:20px;
+  font-size:28px; cursor:pointer;
+  color:#4fc3ff; z-index:1000;
+}
+.dropdown-menu{
+  position:fixed; top:60px; left:20px;
+  background:rgba(0,0,0,.95);
+  padding:15px; border-radius:12px;
+  display:none;
+}
+.dropdown-menu a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  padding:8px 0;
 }
 
-/* DROPDOWN */
-.dropdown-menu {
-    position:fixed;
-    top:60px;
-    left:20px;
-    background:rgba(0,0,0,0.95);
-    padding:15px;
-    border-radius:12px;
-    display:none;
+/* ===== HEADER ===== */
+.header{
+  text-align:center; padding:40px 20px 10px;
 }
-.dropdown-menu a {
-    display:block;
-    color:white;
-    text-decoration:none;
-    padding:8px 0;
+.header h1{
+  font-size:48px;
+  font-family:'Orbitron',sans-serif;
+  background:linear-gradient(90deg,#4fc3ff,#00ff99,#4fc3ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-/* HEADER */
-.header {text-align:center; padding:40px;}
-.header h1 {
-    font-size:48px;
-    font-family:'Orbitron';
-    background:linear-gradient(90deg,#4fc3ff,#00ff99,#4fc3ff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+/* ===== LOGO ===== */
+.logo{ text-align:center; margin:20px; }
+.logo img{ width:180px; }
+
+/* ===== SERVICES ===== */
+.services{ padding:40px; }
+.services h2{ font-size:32px; color:#4fc3ff; }
+.service-row{
+  display:flex; justify-content:space-between;
+  border-bottom:1px solid #444; padding:10px 0;
 }
 
-/* LOGO */
-.logo {text-align:center;}
-.logo img {width:180px;}
-
-/* SERVICES */
-.services {padding:40px;}
-.services h2 {color:#4fc3ff;}
-
-.service-row {
-    display:flex;
-    justify-content:space-between;
-    border-bottom:1px solid #444;
-    padding:10px 0;
+/* ===== BUTTON (with shake) ===== */
+button{
+  background:#4fc3ff; border:none;
+  padding:8px 15px; border-radius:5px;
+  cursor:pointer; transition:.2s;
+}
+button:hover{ animation:shake .3s; }
+@keyframes shake{
+  0%{transform:translateX(0);}
+  25%{transform:translateX(-2px);}
+  50%{transform:translateX(2px);}
+  75%{transform:translateX(-2px);}
+  100%{transform:translateX(0);}
 }
 
-/* BUTTON */
-button {
-    background:#4fc3ff;
-    border:none;
-    padding:8px 15px;
-    border-radius:5px;
-    cursor:pointer;
+/* ===== SLIDESHOW ===== */
+.slideshow{
+  width:80%; max-width:500px;
+  margin:40px auto;
 }
-button:hover {
-    animation:shake 0.3s;
+.slide{ display:none; width:100%; }
+.slide.active{ display:block; }
+
+/* ===== DOTS ===== */
+.dots{ text-align:center; }
+.dot{
+  height:10px; width:10px; margin:5px;
+  background:#555; border-radius:50%;
+  display:inline-block;
 }
-@keyframes shake {
-0%{transform:translateX(0);}
-25%{transform:translateX(-2px);}
-50%{transform:translateX(2px);}
-75%{transform:translateX(-2px);}
-100%{transform:translateX(0);}
+.dot.active{ background:#4fc3ff; }
+
+/* ===== LOGIN POPUP ===== */
+.login-popup{
+  position:fixed; inset:0;
+  display:none; justify-content:center; align-items:center;
+  background:rgba(0,0,0,.8);
+}
+.login-box{
+  background:#111; padding:30px;
+  border-radius:15px; border:2px solid #00ffcc;
+  text-align:center;
+}
+.login-box input{
+  width:250px; padding:10px; margin:10px 0;
+  border-radius:5px; border:none;
 }
 
-/* SLIDES */
-.slideshow {
-    width:80%;
-    max-width:500px;
-    margin:40px auto;
-}
-.slide {display:none; width:100%;}
-.slide.active {display:block;}
-
-/* DOTS */
-.dots {text-align:center;}
-.dot {
-    height:10px;
-    width:10px;
-    margin:5px;
-    background:#555;
-    border-radius:50%;
-    display:inline-block;
-}
-.dot.active {background:#4fc3ff;}
-
-/* LOGIN POPUP */
-.login-popup {
-    position:fixed;
-    width:100%;
-    height:100%;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    background:rgba(0,0,0,0.8);
-}
-.login-box {
-    background:#111;
-    padding:30px;
-    border-radius:15px;
-    border:2px solid #00ffcc;
-    text-align:center;
-}
-.login-box input {
-    width:250px;
-    padding:10px;
-    margin:10px 0;
-}
-
-/* FOOTER */
-.footer {
-    position:fixed;
-    bottom:15px;
-    left:50%;
-    transform:translateX(-50%);
-    color:#888;
+/* ===== FOOTER ===== */
+.footer{
+  position:fixed; bottom:15px; left:50%;
+  transform:translateX(-50%); color:#888;
 }
 </style>
 </head>
@@ -194,61 +167,64 @@ button:hover {
 <!-- MENU BUTTON -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- DROPDOWN MENU -->
+<!-- DROPDOWN -->
 <div class="dropdown-menu" id="menu">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="contact.html">Contact Us</a>
-<a href="about.html">About Us</a>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="about.html">About Us</a>
 </div>
 
+<!-- BACKGROUND -->
 <div class="bg1"></div>
 <div class="bg2"></div>
 
 <!-- NAVBAR -->
 <div class="navbar">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="contact.html">Contact</a>
-<a href="about.html">About</a>
-
-<button class="nav-login" onclick="openLogin()">Login</button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="about.html">About</a>
+  <button class="nav-login" onclick="openLogin()">Login</button>
 </div>
 
+<!-- HEADER -->
 <div class="header">
-<h1>A.M Graphic Design</h1>
+  <h1>A.M Graphic Design</h1>
 </div>
 
+<!-- LOGO -->
 <div class="logo">
-<img src="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
+  <img src="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
 </div>
 
+<!-- SERVICES -->
 <div class="services">
-<h2>Services</h2>
-<ul>
-<li class="service-row">Video Editing <button onclick="location.href='page2.html'">Details</button></li>
-<li class="service-row">Photo Editing <button onclick="location.href='page3.html'">Details</button></li>
-<li class="service-row">AI Editing <button onclick="location.href='page4.html'">Details</button></li>
-<li class="service-row">Logo Design <button onclick="location.href='page5.html'">Details</button></li>
-<li class="service-row">Pattern Design <button onclick="location.href='page6.html'">Details</button></li>
-<li class="service-row">Book Covers Design <button onclick="location.href='page7.html'">Details</button></li>
-<li class="service-row">Brand Labels Design <button onclick="location.href='page8.html'">Details</button></li>
-</ul>
+  <h2>Services</h2>
+  <ul>
+    <li class="service-row">Video Editing <button onclick="location.href='page2.html'">Details</button></li>
+    <li class="service-row">Photo Editing <button onclick="location.href='page3.html'">Details</button></li>
+    <li class="service-row">AI Editing <button onclick="location.href='page4.html'">Details</button></li>
+    <li class="service-row">Logo Design <button onclick="location.href='page5.html'">Details</button></li>
+    <li class="service-row">Pattern Design <button onclick="location.href='page6.html'">Details</button></li>
+    <li class="service-row">Book Covers Design <button onclick="location.href='page7.html'">Details</button></li>
+    <li class="service-row">Brand Labels Design <button onclick="location.href='page8.html'">Details</button></li>
+  </ul>
 </div>
 
-<!-- SLIDER -->
+<!-- SLIDESHOW -->
 <div class="slideshow">
-<img src="hours.png" class="slide active">
-<img src="order.png" class="slide">
-<img src="paypal.png" class="slide">
+  <img src="hours.png" class="slide active">
+  <img src="order.png" class="slide">
+  <img src="paypal.png" class="slide">
 </div>
 
 <div class="dots">
-<span class="dot active"></span>
-<span class="dot"></span>
-<span class="dot"></span>
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
 </div>
 
 <!-- LOGIN POPUP -->
@@ -261,36 +237,39 @@ button:hover {
   </div>
 </div>
 
-<div class="footer">
-© 2026 A.M Graphic Design
-</div>
+<!-- FOOTER -->
+<div class="footer">© 2026 A.M Graphic Design</div>
 
 <script>
-let slides=document.querySelectorAll(".slide");
-let dots=document.querySelectorAll(".dot");
-let index=0;
+window.onload = function(){
 
-setInterval(()=>{
- slides[index].classList.remove("active");
- dots[index].classList.remove("active");
+  // MENU
+  window.toggleMenu = function(){
+    let m = document.getElementById("menu");
+    m.style.display = (m.style.display==="block") ? "none" : "block";
+  }
 
- index=(index+1)%slides.length;
+  // LOGIN POPUP
+  window.openLogin = function(){
+    document.getElementById("loginPopup").style.display="flex";
+  }
+  window.closeLogin = function(){
+    document.getElementById("loginPopup").style.display="none";
+  }
 
- slides[index].classList.add("active");
- dots[index].classList.add("active");
-},3000);
+  // SLIDER
+  let slides = document.querySelectorAll(".slide");
+  let dots  = document.querySelectorAll(".dot");
+  let index = 0;
 
-function toggleMenu(){
- let m=document.getElementById("menu");
- m.style.display=(m.style.display==="block")?"none":"block";
-}
+  setInterval(()=>{
+    slides[index].classList.remove("active");
+    dots[index].classList.remove("active");
+    index = (index+1) % slides.length;
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+  },3000);
 
-function openLogin(){
- document.getElementById("loginPopup").style.display="flex";
-}
-
-function closeLogin(){
- document.getElementById("loginPopup").style.display="none";
 }
 </script>
 
