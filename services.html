@@ -1,149 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services - A.M Graphic Design</title>
-<!-- ✅ FAVICON FIX -->
-<link rel="icon" type="image/png" href="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(135deg,#050505,#0a0a0a,#050505);
-    color: white;
-}
-
-h1 {
-    text-align: center;
-    color: #4fc3ff;
-    margin-top: 20px;
-    font-size: 32px;
-    text-shadow: 0 0 15px #4fc3ff;
-}
-
-.list {
-    width: 90%;
-    max-width: 650px;
-    margin: auto;
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-    padding: 15px;
-    border-radius: 15px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    cursor: pointer;
-    transition: 0.3s;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.row:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 25px #4fc3ff, 0 0 40px #00ffcc;
-}
-
-.row img {
-    width: 110px;
-    border-radius: 12px;
-    margin-right: 20px;
-}
-
-.row span {
-    font-size: 20px;
-}
-
-.popup {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
-}
-
-.popup-box {
-    background: rgba(20,20,20,0.9);
-    padding: 25px;
-    border-radius: 18px;
-    text-align: center;
-    border: 2px solid #4fc3ff;
-    box-shadow: 0 0 30px #4fc3ff, 0 0 50px #00ffcc;
-    width: 340px;
-    position: relative;
-}
-
-.price {
-    color: #00ff99;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-select, textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background: #111;
-    color: white;
-    margin-top: 10px;
-}
-
-#total {
-    margin-top: 10px;
-    color: #4fc3ff;
-}
-
-.checkout {
-    background: linear-gradient(45deg,#00ff99,#00cc77);
-    padding: 12px;
-    margin-top: 15px;
-    border: none;
-    width: 100%;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    cursor: pointer;
-}
-    .close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    cursor: pointer;
-}
-
-.navbar {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-}
-
-.navbar a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #4fc3ff;
-    font-weight: bold;
-}
-
-</style>
-</head>
-
-<body>
-
-
-
 <div class="navbar">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
@@ -151,7 +5,6 @@ select, textarea {
     <a href="contact.html">Contact Us</a>
     <a href="about.html">About Us</a>
 </div>
-
 
 <h1>Services</h1>
 
@@ -200,13 +53,11 @@ select, textarea {
     
     <span class="close" onclick="closePopup()">✖</span>
 
-</style>
-
     <h2 id="title"></h2>
 
     <div id="priceText" class="price"></div>
 
-    <!-- VIDEO TYPE ONLY -->
+    <!-- VIDEO TYPE -->
     <select id="type" style="display:none;" onchange="calc()">
         <option value="1">1 min</option>
         <option value="5">5 min</option>
@@ -218,6 +69,7 @@ select, textarea {
 
     <h3 id="total">$10</h3>
 
+    <!-- 🔥 DESCRIPTION -->
     <textarea id="desc" placeholder="Describe your order..."></textarea>
 
     <button class="checkout" onclick="checkout()">Checkout</button>
@@ -294,18 +146,18 @@ function checkout(){
     let total = document.getElementById("total").innerText;
     let title = document.getElementById("title").innerText;
 
+    // 🔥 NEW (description add)
+    let desc = document.getElementById("desc").value;
+
     let msg = "Hello, I want to order:%0A" +
               title +
               (title === "Video Editing" ? "%0AVideo Type: " + type : "") +
               "%0AQuantity: " + qty +
-              "%0ATotal: " + total;
+              "%0ATotal: " + total +
+              "%0ADescription: " + desc;
 
-    window.open("https://wa.me/94715445967?text=" + msg);
+    // 🔥 ENCODE FIX
+    window.open("https://wa.me/94715445967?text=" + encodeURIComponent(msg));
 }
 
 </script>
-
-
-
-</body>
-</html>
