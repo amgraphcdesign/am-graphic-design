@@ -6,7 +6,6 @@
 <title>A.M Graphic Design</title>
 
 <link rel="icon" type="image/png" href="ChatGPT Image Apr 30, 2026, 10_24_49 PM.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 
 <style>
@@ -74,7 +73,7 @@ body::after {
     font-weight: bold;
 }
 
-/* 🔥 MENU BUTTON */
+/* MENU BUTTON */
 .menu-btn {
     position: fixed;
     top: 20px;
@@ -85,7 +84,7 @@ body::after {
     z-index: 1000;
 }
 
-/* 🔥 DROPDOWN MENU (PRO) */
+/* DROPDOWN */
 .dropdown-menu {
     position: fixed;
     top: 60px;
@@ -96,12 +95,6 @@ body::after {
     display: none;
     flex-direction: column;
     box-shadow: 0 0 20px #4fc3ff, 0 0 40px #00ffcc;
-    animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-    from {opacity:0; transform: translateY(-10px);}
-    to {opacity:1; transform: translateY(0);}
 }
 
 .dropdown-menu a {
@@ -109,10 +102,6 @@ body::after {
     text-decoration: none;
     padding: 8px 0;
     display: block;
-}
-
-.dropdown-menu a:hover {
-    color: #00ffcc;
 }
 
 /* Header */
@@ -133,8 +122,6 @@ body::after {
 .logo {
     text-align: center;
     margin: 20px;
-    position: relative;
-    z-index: 2;
 }
 
 .logo img {
@@ -149,11 +136,6 @@ body::after {
 .services h2 {
     font-size: 32px;
     color: #4fc3ff;
-}
-
-.service-list {
-    list-style: none;
-    padding: 0;
 }
 
 .service-row {
@@ -171,27 +153,19 @@ button {
     border-radius: 5px;
 }
 
-button:hover {
-    background: #2aa9e0;
-}
-
 /* SLIDESHOW */
 .slideshow {
     width: 80%;
     max-width: 500px;
     margin: 40px auto;
     position: relative;
-    text-align: center;
 }
 
 .slide {
     width: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
-    border-radius: 10px;
+    transition: 1s;
 }
 
 .slide.active {
@@ -200,10 +174,6 @@ button:hover {
 }
 
 /* DOTS */
-.dots {
-    margin-top: 10px;
-}
-
 .dot {
     height: 10px;
     width: 10px;
@@ -220,50 +190,20 @@ button:hover {
 /* POPUP */
 .popup {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   display: none;
   justify-content: center;
   align-items: center;
   background: rgba(0,0,0,0.8);
-  z-index: 999;
 }
 
 .popup-box {
-  position: relative;
   background: #111;
   padding: 30px;
   border-radius: 15px;
   text-align: center;
   border: 2px solid #00ffcc;
-  box-shadow: 0 0 20px #00ffcc;
-}
-
-.popup-box h2 {
-  color: #4fc3ff;
-}
-
-.popup-box button {
-  margin-top: 15px;
-  padding: 12px 25px;
-  font-size: 16px;
-  background: #4fc3ff;
-  color: black;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 0 10px #4fc3ff;
-}
-
-.close-btn {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  cursor: pointer;
-  color: white;
-  font-size: 18px;
 }
 
 /* FOOTER */
@@ -273,17 +213,46 @@ button:hover {
     left: 50%;
     transform: translateX(-50%);
     color: #888;
-    font-size: 14px;
 }
+
+/* 🔥 RESPONSIVE FIX */
+@media (max-width: 768px){
+
+    .navbar {
+        display: none;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .logo img {
+        width: 130px;
+    }
+
+    .services {
+        padding: 20px;
+    }
+
+    .service-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .slideshow {
+        width: 95%;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 MENU BUTTON -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- 🔥 DROPDOWN -->
 <div class="dropdown-menu" id="menu">
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
@@ -313,14 +282,14 @@ button:hover {
 
 <div class="services">
 <h2>Services</h2>
-<ul class="service-list">
-<li class="service-row"><span>Video Editing</span><button onclick="window.location.href='page2.html'">Details</button></li>
-<li class="service-row"><span>Photo Editing</span><button onclick="window.location.href='page3.html'">Details</button></li>
-<li class="service-row"><span>AI Editing</span><button onclick="window.location.href='page4.html'">Details</button></li>
-<li class="service-row"><span>Logo Design</span><button onclick="window.location.href='page5.html'">Details</button></li>
-<li class="service-row"><span>Pattern Design</span><button onclick="window.location.href='page6.html'">Details</button></li>
-<li class="service-row"><span>Book Covers Design</span><button onclick="window.location.href='page7.html'">Details</button></li>
-<li class="service-row"><span>Brand Labels Design</span><button onclick="window.location.href='page8.html'">Details</button></li>
+<ul>
+<li class="service-row">Video Editing <button onclick="location.href='page2.html'">Details</button></li>
+<li class="service-row">Photo Editing <button onclick="location.href='page3.html'">Details</button></li>
+<li class="service-row">AI Editing <button onclick="location.href='page4.html'">Details</button></li>
+<li class="service-row">Logo Design <button onclick="location.href='page5.html'">Details</button></li>
+<li class="service-row">Pattern Design <button onclick="location.href='page6.html'">Details</button></li>
+<li class="service-row">Book Covers Design <button onclick="location.href='page7.html'">Details</button></li>
+<li class="service-row">Brand Labels Design <button onclick="location.href='page8.html'">Details</button></li>
 </ul>
 </div>
 
@@ -328,62 +297,36 @@ button:hover {
 <img src="hours.png" class="slide active">
 <img src="order.png" class="slide">
 <img src="paypal.png" class="slide">
-
-<div class="dots">
-<span class="dot active"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-</div>
 </div>
 
 <div class="popup" id="popup">
   <div class="popup-box">
-    <span class="close-btn" onclick="closePopup()">✖</span>
     <h2>Hire Me on Fiverr</h2>
     <button onclick="window.open('https://www.fiverr.com/s/qDZNep9')">CLICK HERE</button>
   </div>
 </div>
 
 <div class="footer">
-© 2026 A.M Graphic Design. All rights reserved.
+© 2026 A.M Graphic Design
 </div>
 
 <script>
 let slides = document.querySelectorAll(".slide");
-let dots = document.querySelectorAll(".dot");
 let index = 0;
 
 setInterval(() => {
   slides[index].classList.remove("active");
-  dots[index].classList.remove("active");
   index = (index + 1) % slides.length;
   slides[index].classList.add("active");
-  dots[index].classList.add("active");
 }, 3000);
 
-/* POPUP */
-setTimeout(() => {
-  document.getElementById("popup").style.display = "flex";
-}, 5000);
+setTimeout(()=>{
+ document.getElementById("popup").style.display="flex";
+},5000);
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
-
-/* 🔥 MENU TOGGLE */
-function toggleMenu() {
-  let menu = document.getElementById("menu");
-  menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-
-/* 🔥 CLOSE WHEN CLICK OUTSIDE */
-window.onclick = function(e) {
-  let menu = document.getElementById("menu");
-  if (!e.target.matches('.menu-btn')) {
-    if (menu.style.display === "block") {
-      menu.style.display = "none";
-    }
-  }
+function toggleMenu(){
+ let m=document.getElementById("menu");
+ m.style.display = (m.style.display==="block")?"none":"block";
 }
 </script>
 
