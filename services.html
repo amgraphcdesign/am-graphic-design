@@ -1,3 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - A.M Graphic Design</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg,#050505,#0a0a0a,#050505);
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #4fc3ff;
+    font-weight: bold;
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* LIST */
+.list {
+    width: 90%;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* ROW */
+.row {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+    cursor: pointer;
+}
+.row img {
+    width: 100px;
+    margin-right: 15px;
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.85);
+}
+
+.popup-box {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+}
+
+select, textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    background: #222;
+    color: white;
+    border: none;
+}
+
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: #00ff99;
+    border: none;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
 <div class="navbar">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
@@ -11,38 +116,31 @@
 <div class="list">
 
 <div class="row" onclick="openPopup('video.png','Video Editing')">
-<img src="video.png">
-<span>Video Editing</span>
+<img src="video.png"><span>Video Editing</span>
 </div>
 
 <div class="row" onclick="openPopup('photo.png','Photo Editing')">
-<img src="photo.png">
-<span>Photo Editing</span>
+<img src="photo.png"><span>Photo Editing</span>
 </div>
 
 <div class="row" onclick="openPopup('pattern.png','Pattern Design')">
-<img src="pattern.png">
-<span>Pattern Design</span>
+<img src="pattern.png"><span>Pattern Design</span>
 </div>
 
 <div class="row" onclick="openPopup('logo.png','Logo Design')">
-<img src="logo.png">
-<span>Logo Design</span>
+<img src="logo.png"><span>Logo Design</span>
 </div>
 
 <div class="row" onclick="openPopup('ai.png','AI Editing')">
-<img src="ai.png">
-<span>AI Editing</span>
+<img src="ai.png"><span>AI Editing</span>
 </div>
 
 <div class="row" onclick="openPopup('brand.png','Brand Labels Design')">
-<img src="brand.png">
-<span>Brand Labels Design</span>
+<img src="brand.png"><span>Brand Labels Design</span>
 </div>
 
 <div class="row" onclick="openPopup('book.png','Book Covers Design')">
-<img src="book.png">
-<span>Book Covers Design</span>
+<img src="book.png"><span>Book Covers Design</span>
 </div>
 
 </div>
@@ -50,14 +148,12 @@
 <!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
-    
+
     <span class="close" onclick="closePopup()">✖</span>
 
     <h2 id="title"></h2>
+    <div id="priceText"></div>
 
-    <div id="priceText" class="price"></div>
-
-    <!-- VIDEO TYPE -->
     <select id="type" style="display:none;" onchange="calc()">
         <option value="1">1 min</option>
         <option value="5">5 min</option>
@@ -69,10 +165,9 @@
 
     <h3 id="total">$10</h3>
 
-    <!-- 🔥 DESCRIPTION -->
     <textarea id="desc" placeholder="Describe your order..."></textarea>
 
-    <button class="checkout" onclick="checkout()">Checkout</button>
+    <button onclick="checkout()">Checkout</button>
 
   </div>
 </div>
@@ -88,10 +183,10 @@ function openPopup(img, title){
 
     if(title === "Video Editing"){
         typeBox.style.display = "block";
-        priceText.innerText = "1min = $10 | 5min = $45 | 10min = $95";
+        priceText.innerText = "1min=$10 | 5min=$45 | 10min=$95";
     } else {
         typeBox.style.display = "none";
-        priceText.innerText = "1 = $10 | 5 = $40 | 10 = $90";
+        priceText.innerText = "1=$10 | 5=$40 | 10=$90";
     }
 
     calc();
@@ -103,14 +198,12 @@ function closePopup(){
 
 window.onload = function(){
     let q = document.getElementById("qty");
-
     for(let i=1;i<=100;i++){
         let o = document.createElement("option");
         o.value = i;
         o.innerText = i;
         q.appendChild(o);
     }
-
     calc();
 }
 
@@ -118,19 +211,16 @@ function calc(){
     let qty = document.getElementById("qty").value;
     let type = document.getElementById("type").value;
     let title = document.getElementById("title").innerText;
-
     let price;
 
     if(title === "Video Editing"){
-        if(type == "more"){
+        if(type === "more"){
             document.getElementById("total").innerText = "Discuss via chat";
             return;
         }
-
-        if(type == "1") price = qty * 10;
-        if(type == "5") price = qty * 45;
-        if(type == "10") price = qty * 95;
-
+        if(type === "1") price = qty * 10;
+        if(type === "5") price = qty * 45;
+        if(type === "10") price = qty * 95;
     } else {
         if(qty == 5) price = 40;
         else if(qty == 10) price = 90;
@@ -145,19 +235,20 @@ function checkout(){
     let type = document.getElementById("type").value;
     let total = document.getElementById("total").innerText;
     let title = document.getElementById("title").innerText;
-
-    // 🔥 NEW (description add)
     let desc = document.getElementById("desc").value;
 
-    let msg = "Hello, I want to order:%0A" +
-              title +
-              (title === "Video Editing" ? "%0AVideo Type: " + type : "") +
-              "%0AQuantity: " + qty +
-              "%0ATotal: " + total +
-              "%0ADescription: " + desc;
+    let msg =
+`Hello, I want to order:
+${title}
+${title === "Video Editing" ? "Video Type: " + type : ""}
+Quantity: ${qty}
+Total: ${total}
+Description: ${desc}`;
 
-    // 🔥 ENCODE FIX
     window.open("https://wa.me/94715445967?text=" + encodeURIComponent(msg));
 }
 
 </script>
+
+</body>
+</html>
