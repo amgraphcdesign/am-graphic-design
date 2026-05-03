@@ -121,6 +121,8 @@ button{
  color:#888;
 }
 
+ 
+
  #loginPopup{
  display:none;
  position:fixed;
@@ -239,7 +241,23 @@ window.onload=function(){
  }
 
 }
-</script>
 
+ document.getElementById("loginBtn").addEventListener("click", () => {
+  document.getElementById("loginPopup").style.display = "flex";
+});
+
+document.getElementById("closePopup").addEventListener("click", () => {
+  document.getElementById("loginPopup").style.display = "none";
+});
+</script>
+<div class="login-popup" id="loginPopup">
+  <div class="popup-box">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email"><br><br>
+    <input type="password" placeholder="Password"><br><br>
+    <button>Login</button><br><br>
+    <button id="closePopup">Close</button>
+  </div>
+</div>
 </body>
 </html>
