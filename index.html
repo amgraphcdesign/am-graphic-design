@@ -9,171 +9,196 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 
 <style>
-body{
- margin:0;
- font-family:Arial;
- color:white;
- overflow-x:hidden;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
 }
 
 /* BACKGROUND */
-.bg1,.bg2{
- position:fixed;
- top:0; left:0;
- width:100%; height:100%;
- background-size:cover;
- background-position:center;
- z-index:-2;
+.bg1, .bg2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
 }
 
-.bg1{
- background-image:url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png');
- animation:fade1 10s infinite;
-}
-.bg2{
- background-image:url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png');
- animation:fade2 10s infinite;
+.bg1 {
+    background-image: url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png');
+    animation: fade1 10s infinite;
 }
 
-@keyframes fade1{
- 0%{opacity:1;}
- 50%{opacity:0;}
- 100%{opacity:1;}
-}
-@keyframes fade2{
- 0%{opacity:0;}
- 50%{opacity:1;}
- 100%{opacity:0;}
+.bg2 {
+    background-image: url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png');
+    animation: fade2 10s infinite;
 }
 
-body::after{
- content:"";
- position:fixed;
- width:100%;
- height:100%;
- background:rgba(0,0,0,0.7);
- z-index:-1;
+@keyframes fade1 {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade2 {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: -1;
 }
 
 /* NAVBAR */
-.navbar{
- position:absolute;
- top:20px;
- right:30px;
-}
-.navbar a{
- margin-left:20px;
- color:#4fc3ff;
- text-decoration:none;
- font-weight:bold;
+.navbar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
 }
 
-/* LOGIN BUTTON */
-.nav-login{
- margin-left:20px;
- background:#4fc3ff;
- border:none;
- padding:8px 15px;
- border-radius:5px;
- cursor:pointer;
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #4fc3ff;
+    font-weight: bold;
+}
+
+.nav-login {
+    margin-left: 20px;
+    background: #4fc3ff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* HEADER */
-.header{
- text-align:center;
- padding:40px 20px 10px;
+.header {
+    text-align: center;
+    padding: 40px 20px 10px;
 }
-.header h1{
- font-size:48px;
- font-family:'Orbitron';
- background:linear-gradient(90deg,#4fc3ff,#00ff99,#4fc3ff);
- -webkit-background-clip:text;
- -webkit-text-fill-color:transparent;
+
+.header h1 {
+    font-size: 48px;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(90deg, #4fc3ff, #00ff99, #4fc3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* LOGO */
-.logo{text-align:center;margin:20px;}
-.logo img{width:180px;}
+.logo {
+    text-align: center;
+    margin: 20px;
+}
+
+.logo img {
+    width: 180px;
+}
 
 /* SERVICES */
-.services{
- padding:40px;
-}
-.services h2{
- color:#4fc3ff;
-}
-.service-row{
- display:flex;
- justify-content:space-between;
- border-bottom:1px solid #444;
- padding:10px 0;
+.services {
+    padding: 40px;
 }
 
-/* SLIDESHOW */
-.slideshow{
- width:80%;
- max-width:500px;
- margin:40px auto;
+.services h2 {
+    font-size: 32px;
+    color: #4fc3ff;
 }
-.slide{
- width:100%;
- display:none;
- border-radius:10px;
+
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
 }
-.slide.active{
- display:block;
+
+button {
+    background: #4fc3ff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* ✅ FIXED SLIDESHOW */
+.slideshow {
+    width: 80%;
+    max-width: 500px;
+    margin: 40px auto;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    display: none;
+}
+
+.slide.active {
+    display: block;
 }
 
 /* DOTS */
-.dots{
- text-align:center;
- margin-top:10px;
+.dots {
+    text-align: center;
+    margin-top: 10px;
 }
-.dot{
- height:10px;
- width:10px;
- margin:5px;
- background:#555;
- border-radius:50%;
- display:inline-block;
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 5px;
+    background-color: #555;
+    border-radius: 50%;
+    display: inline-block;
 }
-.dot.active{
- background:#4fc3ff;
+
+.dot.active {
+    background-color: #4fc3ff;
 }
 
 /* LOGIN POPUP */
-.login-popup{
- position:fixed;
- width:100%;
- height:100%;
- display:none;
- justify-content:center;
- align-items:center;
- background:rgba(0,0,0,0.85);
- z-index:9999;
+.login-popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.8);
 }
-.login-box{
- background:#111;
- padding:30px;
- border-radius:15px;
- border:2px solid #00ffcc;
- text-align:center;
+
+.login-box {
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #00ffcc;
+    text-align: center;
 }
-.login-box input{
- width:250px;
- padding:10px;
- margin:10px 0;
- border:none;
- border-radius:5px;
+
+.login-box input {
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
 }
 
 /* FOOTER */
-.footer{
- position:fixed;
- bottom:15px;
- left:50%;
- transform:translateX(-50%);
- color:#888;
+.footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #888;
 }
 </style>
 </head>
@@ -206,18 +231,17 @@ Login
 
 <div class="services">
 <h2>Services</h2>
-
-<li class="service-row">Video Editing <button>Details</button></li>
-<li class="service-row">Photo Editing <button>Details</button></li>
-<li class="service-row">AI Editing <button>Details</button></li>
-<li class="service-row">Logo Design <button>Details</button></li>
-<li class="service-row">Pattern Design <button>Details</button></li>
-<li class="service-row">Book Covers Design <button>Details</button></li>
-<li class="service-row">Brand Labels Design <button>Details</button></li>
-
+<ul>
+<li class="service-row">Video Editing <button onclick="location.href='page2.html'">Details</button></li>
+<li class="service-row">Photo Editing <button onclick="location.href='page3.html'">Details</button></li>
+<li class="service-row">AI Editing <button onclick="location.href='page4.html'">Details</button></li>
+<li class="service-row">Logo Design <button onclick="location.href='page5.html'">Details</button></li>
+<li class="service-row">Pattern Design <button onclick="location.href='page6.html'">Details</button></li>
+<li class="service-row">Book Covers Design <button onclick="location.href='page7.html'">Details</button></li>
+<li class="service-row">Brand Labels Design <button onclick="location.href='page8.html'">Details</button></li>
+</ul>
 </div>
 
-<!-- SLIDER -->
 <div class="slideshow">
 <img src="hours.png" class="slide active">
 <img src="order.png" class="slide">
@@ -234,31 +258,28 @@ Login
 © 2026 A.M Graphic Design
 </div>
 
-<!-- LOGIN POPUP -->
 <div class="login-popup" id="loginPopup">
   <div class="login-box">
     <h2>Login</h2>
     <input type="email" placeholder="Email"><br>
     <input type="password" placeholder="Password"><br>
-    <button onclick="document.getElementById('loginPopup').style.display='none'">
-Close
-</button>
+    <button onclick="document.getElementById('loginPopup').style.display='none'">Close</button>
   </div>
 </div>
 
 <script>
-let slides=document.querySelectorAll(".slide");
-let dots=document.querySelectorAll(".dot");
-let index=0;
+let slides = document.querySelectorAll(".slide");
+let dots = document.querySelectorAll(".dot");
+let index = 0;
 
 setInterval(()=>{
- slides[index].classList.remove("active");
- dots[index].classList.remove("active");
+  slides[index].classList.remove("active");
+  dots[index].classList.remove("active");
 
- index=(index+1)%slides.length;
+  index = (index + 1) % slides.length;
 
- slides[index].classList.add("active");
- dots[index].classList.add("active");
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
 },3000);
 </script>
 
