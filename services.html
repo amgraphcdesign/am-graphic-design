@@ -174,6 +174,7 @@ button {
 
 <script>
 
+// OPEN POPUP
 function openPopup(img, title){
     document.getElementById("popup").style.display = "flex";
     document.getElementById("title").innerText = title;
@@ -192,35 +193,43 @@ function openPopup(img, title){
     calc();
 }
 
+// CLOSE POPUP
 function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
 
+// LOAD QTY
 window.onload = function(){
     let q = document.getElementById("qty");
+
     for(let i=1;i<=100;i++){
         let o = document.createElement("option");
         o.value = i;
         o.innerText = i;
         q.appendChild(o);
     }
+
     calc();
 }
 
+// CALC PRICE
 function calc(){
     let qty = document.getElementById("qty").value;
     let type = document.getElementById("type").value;
     let title = document.getElementById("title").innerText;
+
     let price;
 
     if(title === "Video Editing"){
-        if(type === "more"){
+        if(type == "more"){
             document.getElementById("total").innerText = "Discuss via chat";
             return;
         }
-        if(type === "1") price = qty * 10;
-        if(type === "5") price = qty * 45;
-        if(type === "10") price = qty * 95;
+
+        if(type == "1") price = qty * 10;
+        if(type == "5") price = qty * 45;
+        if(type == "10") price = qty * 95;
+
     } else {
         if(qty == 5) price = 40;
         else if(qty == 10) price = 90;
@@ -230,6 +239,7 @@ function calc(){
     document.getElementById("total").innerText = "$" + price;
 }
 
+// ✅ FINAL FIXED CHECKOUT
 function checkout(){
     let qty = document.getElementById("qty").value;
     let type = document.getElementById("type").value;
@@ -238,12 +248,12 @@ function checkout(){
     let desc = document.getElementById("desc").value;
 
     let msg =
-`Hello, I want to order:
-${title}
-${title === "Video Editing" ? "Video Type: " + type : ""}
-Quantity: ${qty}
-Total: ${total}
-Description: ${desc}`;
+"Hello, I want to order:\n" +
+title +
+(title === "Video Editing" ? "\nVideo Type: " + type : "") +
+"\nQuantity: " + qty +
+"\nTotal: " + total +
+"\nDescription: " + desc;
 
     window.open("https://wa.me/94715445967?text=" + encodeURIComponent(msg));
 }
