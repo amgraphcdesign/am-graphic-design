@@ -1,75 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-<style>
-
-.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 15px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.list {
-    padding: 20px;
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px;
-    margin: 10px 0;
-    background: #111;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.row img {
-    width: 50px;
-}
-
-.popup {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-box {
-    background: #111;
-    padding: 25px;
-    border-radius: 15px;
-    width: 300px;
-    text-align: center;
-}
-
-.close {
-    float: right;
-    cursor: pointer;
-}
-
-.checkout {
-    margin-top: 15px;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    background: #00ffcc;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-</style>
-
-</head>
-<body>
 
 <div class="navbar">
     <a href="index.html">Home</a>
@@ -78,6 +6,7 @@
     <a href="contact.html">Contact Us</a>
     <a href="about.html">About Us</a>
 </div>
+
 
 <h1>Services</h1>
 
@@ -126,6 +55,8 @@
     
     <span class="close" onclick="closePopup()">✖</span>
 
+</style>
+
     <h2 id="title"></h2>
 
     <div id="priceText" class="price"></div>
@@ -141,6 +72,8 @@
     <select id="qty" onchange="calc()"></select>
 
     <h3 id="total">$10</h3>
+
+    <textarea id="desc" placeholder="Describe your order..."></textarea>
 
     <button class="checkout" onclick="checkout()">Checkout</button>
 
@@ -226,6 +159,8 @@ function checkout(){
 }
 
 </script>
+
+
 
 </body>
 </html>
