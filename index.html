@@ -123,14 +123,30 @@ body::after {
     padding: 10px 0;
 }
 
+/* ✅ UPDATED BUTTON */
 button {
     background: #4fc3ff;
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-/* ✅ FIXED SLIDESHOW */
+/* 🔥 HOVER SHAKE EFFECT */
+button:hover {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+/* SLIDESHOW */
 .slideshow {
     width: 80%;
     max-width: 500px;
