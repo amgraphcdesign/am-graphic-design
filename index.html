@@ -11,22 +11,6 @@
 <style>
 body { margin:0; font-family:Arial; color:white; overflow-x:hidden; }
 
-/* Background */
-.bg1,.bg2{
- position:fixed; top:0; left:0; width:100%; height:100%;
- background-size:cover; background-position:center; z-index:-2;
-}
-.bg1{background-image:url('ChatGPT Image Apr 30, 2026, 10_23_51 PM.png');animation:fade1 10s infinite;}
-.bg2{background-image:url('ChatGPT Image Apr 30, 2026, 10_41_32 PM.png');animation:fade2 10s infinite;}
-
-@keyframes fade1{0%{opacity:1;}50%{opacity:0;}100%{opacity:1;}}
-@keyframes fade2{0%{opacity:0;}50%{opacity:1;}100%{opacity:0;}}
-
-body::after{
- content:""; position:fixed; width:100%; height:100%;
- background:rgba(0,0,0,0.7); z-index:-1;
-}
-
 /* NAVBAR */
 .navbar{position:absolute; top:20px; right:30px;}
 .navbar a{
@@ -34,29 +18,10 @@ body::after{
  color:#4fc3ff; font-weight:bold;
 }
 
-/* LOGIN BUTTON */
 .nav-login{
  margin-left:20px; background:#4fc3ff;
  border:none; padding:8px 15px;
  border-radius:5px; cursor:pointer;
-}
-
-/* MENU */
-.menu-btn{
- position:fixed; top:20px; left:20px;
- font-size:28px; cursor:pointer;
- color:#4fc3ff; z-index:1000;
-}
-
-.dropdown-menu{
- position:fixed; top:60px; left:20px;
- background:rgba(0,0,0,0.95);
- padding:15px; border-radius:12px;
- display:none;
-}
-.dropdown-menu a{
- color:white; text-decoration:none;
- display:block; padding:8px 0;
 }
 
 /* HEADER */
@@ -80,34 +45,22 @@ body::after{
  border-bottom:1px solid #444; padding:10px 0;
 }
 
-button{
- background:#4fc3ff; border:none;
- padding:8px 15px; border-radius:5px;
-}
-
-/* 🔥 FIXED SLIDESHOW */
+/* 🔥 PERFECT SLIDESHOW */
 .slideshow{
  width:80%;
  max-width:500px;
  margin:40px auto;
  position:relative;
- height:300px;
- overflow:hidden;
 }
 
 .slide{
  width:100%;
- height:100%;
- position:absolute;
- top:0;
- left:0;
- object-fit:cover;
- opacity:0;
- transition:1s;
+ display:none;
+ border-radius:10px;
 }
 
 .slide.active{
- opacity:1;
+ display:block;
 }
 
 /* DOTS */
@@ -129,31 +82,31 @@ button{
  background:#4fc3ff;
 }
 
-/* POPUPS */
-.popup,.login-popup{
- position:fixed; width:100%; height:100%;
- display:none; justify-content:center;
+/* LOGIN POPUP */
+.login-popup{
+ position:fixed;
+ width:100%;
+ height:100%;
+ display:none;
+ justify-content:center;
  align-items:center;
  background:rgba(0,0,0,0.85);
  z-index:9999;
 }
 
-.popup-box,.login-box{
- background:#111; padding:30px;
- border-radius:15px; text-align:center;
+.login-box{
+ background:#111;
+ padding:30px;
+ border-radius:15px;
  border:2px solid #00ffcc;
+ text-align:center;
 }
 
-.login-box input{
- width:250px; padding:10px;
- margin:10px 0; border:none;
- border-radius:5px;
-}
-
-/* FOOTER */
 .footer{
- position:fixed; bottom:15px;
- left:50%; transform:translateX(-50%);
+ position:fixed;
+ bottom:15px;
+ left:50%;
+ transform:translateX(-50%);
  color:#888;
 }
 </style>
@@ -161,25 +114,12 @@ button{
 
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-<div class="dropdown-menu" id="menu">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="contact.html">Contact Us</a>
-<a href="about.html">About Us</a>
-</div>
-
-<div class="bg1"></div>
-<div class="bg2"></div>
-
 <div class="navbar">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="contact.html">Contact Us</a>
-<a href="about.html">About Us</a>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Pricing</a>
+<a href="#">Contact</a>
+<a href="#">About</a>
 
 <button class="nav-login"
 onclick="document.getElementById('loginPopup').style.display='flex'">
@@ -198,16 +138,13 @@ Login
 <div class="services">
 <h2>Services</h2>
 <ul>
-<li class="service-row">Video Editing <button onclick="location.href='page2.html'">Details</button></li>
-<li class="service-row">Photo Editing <button onclick="location.href='page3.html'">Details</button></li>
-<li class="service-row">AI Editing <button onclick="location.href='page4.html'">Details</button></li>
-<li class="service-row">Logo Design <button onclick="location.href='page5.html'">Details</button></li>
-<li class="service-row">Pattern Design <button onclick="location.href='page6.html'">Details</button></li>
-<li class="service-row">Book Covers Design <button onclick="location.href='page7.html'">Details</button></li>
-<li class="service-row">Brand Labels Design <button onclick="location.href='page8.html'">Details</button></li>
+<li class="service-row">Video Editing <button>Details</button></li>
+<li class="service-row">Photo Editing <button>Details</button></li>
+<li class="service-row">AI Editing <button>Details</button></li>
 </ul>
 </div>
 
+<!-- 🔥 SLIDESHOW -->
 <div class="slideshow">
 <img src="hours.png" class="slide active">
 <img src="order.png" class="slide">
@@ -228,8 +165,8 @@ Login
 <div class="login-popup" id="loginPopup">
   <div class="login-box">
     <h2>Login</h2>
-    <input type="email" placeholder="Email"><br>
-    <input type="password" placeholder="Password"><br>
+    <input type="email" placeholder="Email"><br><br>
+    <input type="password" placeholder="Password"><br><br>
     <button onclick="document.getElementById('loginPopup').style.display='none'">
 Close
 </button>
@@ -242,19 +179,14 @@ let dots=document.querySelectorAll(".dot");
 let index=0;
 
 setInterval(()=>{
-  slides[index].classList.remove("active");
-  dots[index].classList.remove("active");
+ slides[index].classList.remove("active");
+ dots[index].classList.remove("active");
 
-  index=(index+1)%slides.length;
+ index=(index+1)%slides.length;
 
-  slides[index].classList.add("active");
-  dots[index].classList.add("active");
+ slides[index].classList.add("active");
+ dots[index].classList.add("active");
 },3000);
-
-function toggleMenu(){
- let m=document.getElementById("menu");
- m.style.display=(m.style.display==="block")?"none":"block";
-}
 </script>
 
 </body>
